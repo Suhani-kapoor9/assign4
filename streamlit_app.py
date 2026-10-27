@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 
 # Print Title for the App
-st.title("Microsoft Stock Data Dashboard by Peter Wysocki")
+st.title("Microsoft Stock Data Dashboard by Suhani Kapoor")
 
 # Read CSV file with stock data (CSV file must be in 'main' folder for your assignment 4 repository) 
 df = pd.read_csv("msft.csv")
@@ -25,3 +25,15 @@ with tabs[1]:
 with tabs[2]:
     st.subheader(f"Volume for MSFT")
     st.bar_chart(df['Volume'])
+
+# Tab 4: Microsoft Stock Performance Summary
+with tabs[3]:
+    st.subheader("Microsoft Stock Performance Summary")
+
+    st.metric("Highest Closing Price", f"${df['Close'].max():.2f}")
+    st.metric("Lowest Closing Price", f"${df['Close'].min():.2f}")
+    st.metric("Average Closing Price", f"${df['Close'].mean():.2f}")
+
+    st.subheader("Microsoft Stock Price Distribution")
+    st.bar_chart(df['Close'])
+    
